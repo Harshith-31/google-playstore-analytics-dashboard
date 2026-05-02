@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Google Play Store Dashboard</title>
+</head>
+
+<body>
+
+<h1>App Analytics Dashboard</h1>
+
+<!-- Task 1 -->
+<div id="task1">
+    <h2>Task 1: Bubble Chart</h2>
+    <iframe src="task1_bubble_chart.html" width="100%" height="500"></iframe>
+</div>
+
+<!-- Task 2 -->
+<div id="task2">
+    <h2>Task 2: Choropleth Map</h2>
+    <iframe src="task2_choropleth_map.html" width="100%" height="500"></iframe>
+</div>
+
+<!-- Task 3 -->
+<div id="task3">
+    <h2>Task 3: Time Series</h2>
+    <iframe src="task3_timeseries_chart.html" width="100%" height="500"></iframe>
+</div>
+
+<!-- Task 4 -->
+<div id="task4">
+    <h2>Task 4: Stacked Area</h2>
+    <iframe src="task4_stacked_area_chart.html" width="100%" height="500"></iframe>
+</div>
+
+<!-- Task 5 -->
+<div id="task5">
+    <h2>Task 5: Grouped Bar</h2>
+    <iframe src="task5_grouped_bar_chart.html" width="100%" height="500"></iframe>
+</div>
+
+<!-- Task 6 -->
+<div id="task6">
+    <h2>Task 6: Dual Axis</h2>
+    <iframe src="task6_dual_axis_chart.html" width="100%" height="500"></iframe>
+</div>
+
+<script>
+function checkTime(start, end, id){
+    const now = new Date();
+    const options = { timeZone: 'Asia/Kolkata', hour: '2-digit', hour12: false };
+    const hour = parseInt(new Intl.DateTimeFormat('en-US', options).format(now));
+
+    if(hour >= start && hour < end){
+        document.getElementById(id).style.display = "block";
+    } else {
+        document.getElementById(id).style.display = "none";
+    }
+}
+
+window.onload = function(){
+    checkTime(17,19,"task1"); // 5–7 PM
+    checkTime(18,20,"task2"); // 6–8 PM
+    checkTime(18,21,"task3"); // 6–9 PM
+    checkTime(16,18,"task4"); // 4–6 PM
+    checkTime(15,17,"task5"); // 3–5 PM
+    checkTime(13,14,"task6"); // 1–2 PM
+}
+</script>
+
+</body>
+</html>
